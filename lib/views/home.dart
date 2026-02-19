@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:machine/widgets/alert.dart';
+import 'package:machine/view_models/provider.dart';
+import 'package:machine/widgets/add_user.dart';
+import 'package:provider/provider.dart';
 
 class HomeUi extends StatelessWidget {
   const HomeUi({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<User>(context);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 69,
@@ -33,33 +36,6 @@ class HomeUi extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            // Padding(
-            //   padding: EdgeInsets.only(top: 100),
-            //   child: Container(
-            //     height: 69,
-            //     color: Colors.black,
-            //     child: Row(
-            //       children: [
-            //         Padding(
-            //           padding: const EdgeInsets.only(left: 16.0),
-            //           child: Icon(
-            //             Icons.location_on,
-            //             color: Colors.white,
-            //             size: 20,
-            //           ),
-            //         ),
-            //         SizedBox(width: 8),
-            //         Text(
-            //           "Nilambur",
-            //           style: TextStyle(
-            //             color: Colors.white,
-            //             fontWeight: FontWeight.bold,
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
             Padding(
               padding: EdgeInsets.all(16.0),
               child: Row(
@@ -68,15 +44,15 @@ class HomeUi extends StatelessWidget {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: "search by name",
-                        prefixIcon: const Icon(Icons.search),
+                        prefixIcon: Icon(Icons.search),
                         filled: true,
                         fillColor: Colors.white,
-                        contentPadding: const EdgeInsets.symmetric(vertical: 0),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
                           borderSide: BorderSide(color: Colors.grey.shade400),
                         ),
                       ),
+
                     ),
                   ),
                   const SizedBox(width: 10),

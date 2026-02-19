@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class AddUser extends StatelessWidget {
   const AddUser({super.key});
 
   @override
   Widget build(BuildContext context) {
+    
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
       child: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.all(20.0),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,22 +27,23 @@ class AddUser extends StatelessWidget {
 
             Center(
               child: Stack(
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.bottomRight,
                 children: [
-                   CircleAvatar(
-                    radius: 50,
-                    backgroundColor: Colors.blue,
-                    child: Icon(Icons.person, size: 70, color: Colors.white),
+                InkWell(onTap: () {
+                  ImagePicker().pickImage(source: ImageSource.gallery);   
+                },
+                    child:   CircleAvatar(
+                      radius: 50,
+                      backgroundColor: Colors.blue,
+                      child: Icon(Icons.person, size: 70, color: Colors.white),
+                    ),
                   ),
                   Container(
-                    height: 35,
-                    width: 100,
+                    height: 30,
+                    width: 30,
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.5),
-                      borderRadius:  BorderRadius.only(
-                        bottomLeft: Radius.circular(50),
-                        bottomRight: Radius.circular(50),
-                      ),
+                      borderRadius: BorderRadius.circular(40),
                     ),
                     child: const Icon(
                       Icons.camera_alt_outlined,
@@ -53,7 +56,7 @@ class AddUser extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            const Text("Name", style: TextStyle(color: Colors.grey)),
+            const Text("Name", style: TextStyle(color: Color(0xFF333333))),
             const SizedBox(height: 8),
             TextField(
               decoration: InputDecoration(
@@ -61,7 +64,7 @@ class AddUser extends StatelessWidget {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                hintText: "Enter your name", 
+                hintText: "Enter your name",
                 hintStyle: TextStyle(
                   color: Colors.grey.shade400,
                   fontFamily: 'font3',
@@ -72,10 +75,7 @@ class AddUser extends StatelessWidget {
 
             Text(
               "Age",
-              style: TextStyle(
-                fontFamily: 'font3',
-                color: Colors.grey,
-              ),
+              style: TextStyle(fontFamily: 'font3', color: Color(0xFF333333)),
             ),
             SizedBox(height: 8),
             TextField(
