@@ -149,7 +149,7 @@ class otp_ui extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomeUi()),
+                            MaterialPageRoute(builder: (context) => Homeui()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -179,3 +179,5 @@ class otp_ui extends StatelessWidget {
     );
   }
 }
+
+

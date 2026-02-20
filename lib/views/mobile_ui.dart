@@ -2,10 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:machine/views/otp_ui.dart';
 
 class MobileUi extends StatelessWidget {
-  const MobileUi({super.key});
+  MobileUi({super.key});
+  final phonectlr = TextEditingController();
+  final formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    void logintap() {
+      if (formkey.currentState!.validate()) {
+        Navigator.pushAndRemoveUntil(
+          context, 
+          MaterialPageRoute(builder: (context) => otp_ui()),
+          (route) => false,
+        );
+      }
+    }
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -13,7 +25,7 @@ class MobileUi extends StatelessWidget {
           children: [
             Expanded(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                padding: EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
